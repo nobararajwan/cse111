@@ -1,0 +1,58 @@
+Task 01:
+
+private int hashFunction( Integer key ){
+        if(key==null){
+            return -1;
+        }
+        int index= (key+3)%ht.length;
+        return index;
+    }
+    public void remove( Integer key ){
+       int n= hashFunction(key);
+       if(n<0){
+        return;
+       }
+       PairNode head = ht[n];
+       if(head==null){
+        return;
+       }
+       if(head.key.equals(key)){
+        ht[n]=head.next;
+        return;
+       }
+       PairNode current= head.next;
+       PairNode temp=head;
+       while(current!=null){
+        if(current.key.equals(key)){
+            temp.next=current.next;
+            return;
+        }
+        temp=current;
+        current=current.next;
+        }
+        return;
+       }
+
+Task 2:
+
+
+
+
+Task 3:
+
+public static String removeConsecDups(String word){
+        LinkedListQueue now = new LinkedListQueue();
+        now.enqueue(word.charAt(0));
+        for(int i =1;i<word.length();i++){
+            char ch= word.charAt(i);
+            char ch2= word.charAt(i-1);
+            if(ch!=ch2){
+                now.enqueue(ch);
+            }
+        }
+        String z="";
+        while(!now.isEmpty()){
+            z+=now.dequeue();
+        }
+	return z; 
+    }

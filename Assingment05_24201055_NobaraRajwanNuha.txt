@@ -1,0 +1,134 @@
+public class Song{
+  public String name;
+  public String arti;
+  public Song next;
+  public int len;
+  public Song(String x,String y,int b){
+    name=x;
+    arti=y;
+    len=b;
+  }
+  public void songInfo(){
+    System.out.println("Title: "+name+",  Artist: "+arti+
+"\nLength: "+len+" minutes");
+  }
+}
+public class Playlist{
+  public String play;
+  public Song start;
+  public Playlist(String x){
+    play = x;
+    System.out.println(play+" created.");
+  }
+  public void info(){
+    System.out.println("First Playlist has the following songs: ");
+    if(start!=null){
+    int count=0;
+     Song temp=start;
+     while(temp!=null){
+     count++;
+      System.out.println("Song-" + count);
+      System.out.println("Title: " + temp.name + ",  Artist: " + temp.arti);
+      System.out.println("Length: " + temp.len+" minutes");
+       temp=temp.next;
+         }
+    }
+    else{
+       System.out.println("No songs in First Playlist.");
+    }    
+    }
+  
+  
+  public void addSong(Song l) {
+    Song temp=start;
+    if(start==null) {
+      start=l;
+      return;
+    }
+    while(temp.next!=null) {
+      temp=temp.next;
+      System.out.println(l.name+" added to First Playlist.");
+    }
+    temp.next=l;
+    
+  }
+  
+  public void addSong(Song k, int place) {
+    if(place==0) {
+      k.next=start;
+      start=k;
+      System.out.println(k.name + " added to " + play);
+      return;
+    }
+    else {
+      Song temp=start;
+      int count=0;
+      while(count<place-1){
+        if(temp.next!=null){
+          temp=temp.next;
+          count++;
+        }
+        else {
+          System.out.println("Cannot add song to Index " + place);
+          return;
+        }
+      }
+      k.next=temp.next;
+      temp.next=k;
+      System.out.println(k.name + " added to " + play);
+    }
+  }
+  public void playSong(String y){
+    Song temp = start;
+    boolean here= false;
+    while(temp!=null){
+      if(temp.name.equals(y)){
+        System.out.println("Playing "+y+" by "+ temp.arti);
+        here=true;
+        break;
+      }
+      temp=temp.next;
+    }
+     if(!here) {
+        System.out.println(y+ " not found in First Playlist.");
+      }
+    }
+  
+public void playSong(int place){
+  Song temp=start;
+  int count=0;
+  while(temp!=null&&count<place){
+      temp=temp.next;
+      count++;
+  }
+      if(count==place){
+        System.out.println("Playing "+temp.name+" by "+temp.arti);
+      }
+    else{
+     System.out.println("Song at Index "+place+" not found in First Playlist.");
+    }
+}
+public void deleteSong(String son){
+  Song temp=start;
+  if(start.name.equals(son)){
+    start=start.next;
+    System.out.println(son+" removed from First Playlist.");
+    return;
+  }
+  
+  while(temp.next!=null){
+    if(temp.next.name.equals(son)){
+      temp.next=temp.next.next;
+      return;
+    }
+ temp=temp.next;
+    System.out.println(start.name+" not found in First Playlist.");
+  
+}
+}
+}
+
+
+      
+          
+        

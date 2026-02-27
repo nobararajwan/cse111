@@ -1,0 +1,193 @@
+task 01:
+
+ public String productname;
+  private double price;
+  private int quantity;
+  public Product(){
+    productname="Unknown";
+    price=0.0;
+  }
+  public Product(String a, double b){
+    productname=a;
+    price=b;
+  }
+  public double getPrice(){
+    return price;
+  }
+  public void displayInfo(){
+    System.out.println("Product Name: "+productname+"\nPrice: $"+price);
+  }
+  public void setQuantity(int x){
+    quantity=x;
+  }
+  public int getQuantity(){
+    return quantity;
+  }
+ 
+   public void displayInfo(boolean j){
+       System.out.println("Product Name: "+productname+"\nPrice: $"+price);
+       System.out.println("Quantity: "+quantity);
+   }
+}
+
+task 02:
+
+public class Passenger{
+  public static int no_of_passenger=0;
+  public static double total_fare=0.0;
+  public double fare;
+  public String name;
+  public double distance;
+  private double weight;
+  public Passenger(String a , double b){
+    name=a;
+    distance=b;
+    fare=20*b;   
+    Passenger.no_of_passenger+=1;
+  }
+  public void passengerDetails(){
+    System.out.println("Name: "+name+"\nFare: "+fare+" TK");
+    Passenger.total_fare+=fare;
+  }
+  public void storeBaggageWeight(double x){
+    weight=x;
+    if(x>0.0){
+      fare+=10*x; 
+    }
+  }
+}
+  
+task 03:
+
+public class Book{
+  public static int total_books_sold;
+  public static double total_revenue;
+  public String name;
+  public int discount;
+  public double price=150;
+  public Book(String nm,int dis){
+    name=nm;
+    discount=dis;
+    if(discount>0.0){
+      price= discountedPrice(discount);
+    }
+    Book.total_books_sold+=1;
+    Book.total_revenue+=price;
+  }
+  public double discountedPrice(double x){
+    double j = 150-((x/100.00)*150);
+    return j;
+  }
+  public void bookDetails(){
+    System.out.println("Title: "+name+"\nPrice after Discount: "+price+" TK");
+  }
+}
+
+Task 04:
+
+public class Circle{
+  private double radius;
+  public double area;
+  public double r;
+  public static int count;
+  public Circle(double x){
+    radius=setRadius(x);
+    area= area();
+    Circle.count+=1;
+  }
+  public double setRadius(double y){
+     r=y;
+    return getRadius();
+  }
+  public double getRadius(){
+    return r;
+  }
+  public double area(){
+    double a=Math.PI*radius*radius;
+    return a;
+  }
+}
+    
+task 05:
+
+public class Borrower{
+  
+  public static int book_count[] = {3, 3, 3};
+  public static String book_name[] = {"Pather Panchali", "Durgesh Nandini", "Anandmath"};
+  public String name;
+  public int[] borrow;
+  public Borrower(String n){
+    name=n;
+  }
+  public void borrowBook(String b){
+    for(int i=0;i<book_count.length;i++){
+      if(b.equals(book_name[i]){
+        borrow[i]=b;
+      }
+
+
+task 07:
+
+public class Student{
+  public String st;
+  public static int countd;
+  public static int countt;
+  public static int counto;
+  public double cg;
+  public String dep;
+  public Student(String n,double g){
+    st=n;
+    cg=g;
+    dep="CSE";
+    countd++;
+    countt++;
+  }
+  public Student(String n,double g,String d){
+    st=n;
+    cg=g;
+    dep=d;
+    countt++;
+    counto++;
+  }
+  public void individualDetail(){
+    System.out.println("ID: "+countt+"\nName: "+st+"\nCGPA: "+cg+"\nDepartment: "+dep);
+  }
+  public static void printDetails(){
+    System.out.println("Total Student(s): "+countt+"\nCSE Student(s): "+countd+"\nOther Department Student(s): "+counto);
+  }
+}
+  
+
+
+task 08:
+
+public class Player{
+  public static int total=11;
+  public String nameplay;
+  public String country;
+  public int jersey;
+  public static int count;
+  public static String[] players= new String[11];
+  public Player(String p1,String c,int jer){
+    nameplay=p1;
+    country=c;
+    jersey=jer;   
+      Player.players[Player.count]=nameplay; 
+      Player.count+=1;
+    }
+      
+  public String player_detail(){
+    return "Player Name: "+nameplay+"\nJersey Number: "+jersey+"\nCountry: "+country;
+  }
+  public static void info(){
+    System.out.println("Total number of players: "+count);
+    System.out.print("Players enlisted so far: ");
+    for(int i=0;i<Player.count;i++){
+      System.out.print(Player.players[i]);
+       if (i < Player.count - 1) {
+        System.out.print(", ");
+       }
+    }
+    System.out.println();
+  }
+}

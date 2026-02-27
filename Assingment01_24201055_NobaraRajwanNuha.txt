@@ -1,0 +1,261 @@
+Task 01:
+
+import java.util.Scanner;
+public class task1{
+  public static void main(String[]args){
+    Scanner sc= new Scanner(System.in);
+    int sum=0;
+    int x=0;
+    int max=0;
+    int min=0;
+    int count=0;
+    double average=0;
+    for(int i=0;i<10;i++){
+      x= sc.nextInt();
+      if(x>0){
+        if(x%2!=0){
+          sum+=x;
+          count++;
+          min=x;
+        if(x>max){
+           max=x;
+        }
+        if(x<min){
+           min=x;
+        }
+      }
+    }
+    }
+    if(count>0){
+    average=sum/count;
+    }
+    System.out.println("Sum :"+sum);
+    System.out.println("Average :"+ average);
+    System.out.println("Max :"+max);
+    System.out.println("Min :"+min);
+    
+  }
+}
+
+
+Task 02:
+
+
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args){
+      Scanner sc = new Scanner(System.in);
+      int a = sc.nextInt();
+      int b = sc.nextInt();
+      int prime=0;
+      int m=0;
+      int n=0;
+      if(a>b){
+          m=a;
+          n=b;
+      }
+      else{
+          m=b;
+          n=a;
+      }
+      for(int i=n; i<=m;i++){
+          int count=0;
+          for(int y=1;y<=i;y++){
+              if(i%y==0){
+                  count++;
+              }
+          }
+              if(count==2){
+                  prime++;
+              }
+          }
+      
+      System.out.print(prime);
+    }
+}
+
+
+Task 03:
+
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args){
+      Scanner sc = new Scanner(System.in);
+      String A = sc.next();
+      String B = sc.next();
+      int sum=0;
+      String Add = A+" "+B;
+      char ch1;
+      
+      for(int i=0;i<Add.length();i++){
+          ch1=Add.charAt(i);
+          if(ch1>='A' && ch1<='Z' || ch1>='a' && ch1<='z'){
+          int x=(int)ch1;
+          sum+=x;
+      }
+      }
+      System.out.println(Add);
+      System.out.print(sum);
+    }
+}
+
+
+Task 04:
+
+import java.util.Scanner;
+public class Main{
+  public static void main(String[]args){
+    Scanner sc = new Scanner(System.in);
+    String word= sc.next();
+    for(int i=0; i<word.length();i++){
+      char ch = word.charAt(i);
+      int cha=(int)ch-1;
+      char chara =(char)cha;
+      if(ch=='A' ){
+        chara='Z';
+      }
+      if(ch=='a'){ 
+        chara='z';
+      }
+      System.out.print(chara);
+    }
+  }
+}
+
+Task 05:
+
+import java.util.Scanner;
+import java.util.Arrays;
+public class Main{
+  public static void main(String[]args){
+    Scanner sc = new Scanner(System.in);
+    int size = sc.nextInt();
+    int arr[]= new int[size];
+    for(int i=0;i<arr.length;i++){
+      arr[i]=sc.nextInt();
+     
+    }
+    System.out.print("main one "+Arrays.toString(arr));
+    for(int x=0;x<(arr.length)/2;x++){
+     int temp= arr[x];
+     arr[x]=arr[arr.length-1-x];
+     arr[arr.length-1-x]=temp;
+    }
+    System.out.print("inverse one "+Arrays.toString(arr));
+  }
+}
+       
+
+Task 06:
+
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main{
+  public static void main(String[]args){
+    Scanner sc = new Scanner(System.in);
+    int size = sc.nextInt();
+   
+    boolean [] extra = new boolean[size];
+    int[] array= new int[size];
+    for(int i=0; i<size;i++){
+         array[i]= sc.nextInt();
+      }
+   for(int i=0; i<size;i++){
+      extra[i]=true;
+    }
+   
+for(int i=0; i<size;i++){
+  if(!extra[i]){
+    continue;
+  }
+   int count=1;
+      for(int j=i+1;j<size;j++){
+        if(array[i]==array[j]){
+          extra[j]=false;
+          count++;
+      }
+}
+      System.out.println(array[i]+":"+count);
+      
+}
+}
+  }
+
+Task 08:
+
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main{
+  public static void main(String[]args){
+    Scanner sc = new Scanner(System.in);
+    int row = sc.nextInt();
+    int col=sc.nextInt();
+    int[][] darray= new int[row][col];
+    for(int i=0; i<row;i++){
+      for(int j=0;j<col;j++){
+         darray[i][j]= sc.nextInt();
+      }
+    }
+  
+   for(int i=0; i<row;i++){
+      for(int j=0;j<col;j++){
+         System.out.print(darray[i][j] +" ");
+      }
+       System.out.println();
+    }
+    System.out.println("flat");
+for(int i=0; i<row;i++){
+      for(int j=0;j<col;j++){
+         System.out.print(darray[i][j] +" ");
+      }
+}
+  }
+}
+
+
+Task 09:
+
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main{
+  public static void main(String[]args){
+    Scanner sc = new Scanner(System.in);
+    int N = sc.nextInt();
+    boolean word=true;
+    int [][] array1 = new int[N][N];
+    for(int i=0; i<N;i++){
+      for(int j=0;j<N;j++){
+         array1[i][j]= sc.nextInt();
+      }
+    }
+    for(int i=0;i<N;i++){
+      for(int j=0;j<N;j++){
+        if(i==j){
+          if(array1[i][j]!=1){
+            
+            word=false;
+            break;
+          }
+        }
+          else {
+            if(array1[i][j]!=0){
+              
+            word=false;
+            break;
+            }
+        }
+      }
+    }
+    if(word){
+      System.out.print("identity");
+    }
+    else{
+            System.out.print("Not identity");
+            
+  }
+}
+}
+
+ 
